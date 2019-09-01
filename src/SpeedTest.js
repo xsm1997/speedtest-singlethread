@@ -70,6 +70,6 @@ Server.get('/getIP', function (req, res) {
 
 Server.use(express.static(path.join(__dirname, 'public')));
 
-Server.listen(8888, function () {
+Server.listen(520, function () {
     console.log('Speedtest Server is up and running!');
 });
