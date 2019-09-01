@@ -1,5 +1,9 @@
 /*
+<<<<<<< HEAD
 	HTML5 Speedtest - Worker
+=======
+	HTML5 Speedtest v4.7.1
+>>>>>>> c889b979eb982dc6aa5fd18c52f59f00e7c02ec3
 	by Federico Dossena
 	https://github.com/adolfintel/speedtest/
 	GNU LGPLv3 License
@@ -81,7 +85,11 @@ function url_sep(url) {
 /*
 	listener for commands from main thread to this worker.
 	commands:
+<<<<<<< HEAD
 	-status: returns the current status as a JSON string containing testState, dlStatus, ulStatus, pingStatus, clientIp, jitterStatus, dlProgress, ulProgress, pingProgress
+=======
+	-status: returns the current status as a JSON string containing testStatus, dlStatus, ulStatus, pingStatus, clientIp, jitterStatus, dlProgress, ulProgress, pingProgress
+>>>>>>> c889b979eb982dc6aa5fd18c52f59f00e7c02ec3
 	-abort: aborts the current test
 	-start: starts the test. optionally, settings can be passed as JSON.
 		example: start {"time_ul_max":"10", "time_dl_max":"10", "count_ping":"50"}
@@ -426,6 +434,7 @@ function dlTest(done) {
 		200
 	);
 }
+
 // upload test, calls done function whent it's over
 var ulCalled = false; // used to prevent multiple accidental calls to ulTest
 function ulTest(done) {
