@@ -14,10 +14,6 @@ speedtest-x 使用文件数据库来保存来自不同用户的测速结果，�
  - 不依赖 MySQL，使用文件数据库
  - IP 库改用 [ip.sb](https://ip.sb)，运营商记录更为精确
 
-## 恰饭
-
-Jetbrains 全家桶教育许可，正规国内大学渠道，9.9 元，购买地址：[https://xiaozhu.win](https://xiaozhu.win)
-
 ## 部署与使用
 
 #### 常规部署 (环境要求：PHP 5.6+)
@@ -38,7 +34,11 @@ Jetbrains 全家桶教育许可，正规国内大学渠道，9.9 元，购买地
 
 1、拉取 [Docker 镜像](https://hub.docker.com/r/badapple9/speedtest-x) `docker pull badapple9/speedtest-x`
 
-2、运行容器 `docker run [-d] -p 9001:80 -it badapple9/speedtest-x`
+  (**ARM 架构的机器，执行 `docker pull stilleshan/speedtest-x`**，ARM 镜像由热心网友制作)
+
+2、运行容器 `docker run -d -p 9001:80 -it badapple9/speedtest-x`   
+
+  (**ARM 架构的机器，运行 `docker run -d -p 9001:80 -it stilleshan/speedtest-x`**)
 
 > **-d**：以常驻进程模式启动
 >
@@ -53,6 +53,16 @@ Jetbrains 全家桶教育许可，正规国内大学渠道，9.9 元，购买地
 > **-e IP_SERVICE=ip.sb**: 使用的 IP 运营商解析服务(ip.sb 或 ipinfo.io)
 >
 > **-e SAME_IP_MULTI_LOGS=false**: 是否允许同一IP记录多条测速结果
+
+> 如果想让 Docker 容器支持 ipv6，可编辑 `/etc/docker/daemon.json` ，加上以下内容：（如果不存在这个文件则直接创建）
+> ```
+> {
+>   "ipv6": true,
+>   "fixed-cidr-v6": "fd00::/80",
+>   "experimental": true,
+>   "ip6tables": true
+> }
+> ```
 
 3、访问 `{IP}:{端口}/index.html` 进行测速
 
